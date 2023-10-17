@@ -12,6 +12,8 @@ public static class DependencyInjection
             .AddPostgresContext(configuration)
             .MigrateDatabase()
             .AddRedisCache(configuration)
+            .AddClientSettings(configuration)
+            .AddServiceClients()
             .AddRepositories();
 
         return services;
