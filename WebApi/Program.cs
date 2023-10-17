@@ -13,6 +13,7 @@ builder.Services
     .AddEndpointsApiExplorer()
     .AddPandaSwaggerGen(builder.Configuration) // Move to common
     .AddCustomFluentValidation()
+    .AddMediator()
     .AddAppSettings(builder.Configuration)
     .AddApplication()
     .AddInfrastructure(builder.Configuration)

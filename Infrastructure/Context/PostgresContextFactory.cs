@@ -9,11 +9,11 @@ public class PostgresContextFactory : IDesignTimeDbContextFactory<PostgresContex
     private IConfiguration BuildConfiguration(string basePath)
     {
         string environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
+        
         return new ConfigurationBuilder()
             .SetBasePath(basePath)
             .AddJsonFile("appsettings.json")
-            .AddJsonFile($"appsettings.{environment}.json", optional: true)
+            .AddJsonFile($"appsettings.{environment}.json", optional: true, false)
             .Build();
     } // TODO maybe move to common
 

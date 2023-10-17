@@ -7,6 +7,7 @@ internal static class LoggerExtension
     internal static void AddSerilog(this WebApplicationBuilder builder) // Move to common
     {
         var indexName = Environment.GetEnvironmentVariable("ELASTIC_INDEX_NAME"); // From configs
+        // TODO: Read from executing assembly
         var elasticSearchUrl = Environment.GetEnvironmentVariable("ELASTIC_SEARCH_URL"); // From configs
 
         //This part is for general configuration
