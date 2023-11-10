@@ -13,3 +13,4 @@
 /Users/sol/Documents/Panda/clean-api-template/src/Application/obj/Debug/net7.0/refint/Application.dll
 /Users/sol/Documents/Panda/clean-api-template/src/Application/obj/Debug/net7.0/Application.pdb
 /Users/sol/Documents/Panda/clean-api-template/src/Application/obj/Debug/net7.0/ref/Application.dll
+/Users/sol/Documents/Panda/clean-api-template/src/Application/obj/Debug/net7.0/Application.sourcelink.json

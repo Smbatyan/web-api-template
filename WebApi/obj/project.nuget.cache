@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GWiEi9b6hMdmQnNNRA1o4NQ/BKGehee/O91yFSt3xL3flSMjtwp9HDYMF/9+15vqO2ru45mrskzXWUPgj9jp2A==",
+  "dgSpecHash": "DzyNNw9F/ZBprP7ND0hPLdY7xoAQeBPdwvKR91dQBlcJaCGDiosn6IO1Y6Gyis99YmHGqIlZ45UeKSn1vn4tcg==",
   "success": true,
   "projectFilePath": "/Users/sol/Documents/Panda/clean-api-template/src/WebApi/WebApi.csproj",
   "expectedPackageFiles": [
@@ -77,7 +77,7 @@
     "/Users/sol/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.11/npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512",
     "/Users/sol/.nuget/packages/pandatech.baseconverter/1.0.11/pandatech.baseconverter.1.0.11.nupkg.sha512",
     "/Users/sol/.nuget/packages/pipelines.sockets.unofficial/2.2.8/pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
-    "/Users/sol/.nuget/packages/rabbitmq.client/6.5.0/rabbitmq.client.6.5.0.nupkg.sha512",
+    "/Users/sol/.nuget/packages/rabbitmq.client/7.0.0-alpha.0/rabbitmq.client.7.0.0-alpha.0.nupkg.sha512",
     "/Users/sol/.nuget/packages/serilog/2.12.0/serilog.2.12.0.nupkg.sha512",
     "/Users/sol/.nuget/packages/serilog.aspnetcore/7.0.0/serilog.aspnetcore.7.0.0.nupkg.sha512",
     "/Users/sol/.nuget/packages/serilog.enrichers.environment/2.3.0/serilog.enrichers.environment.2.3.0.nupkg.sha512",
@@ -102,7 +102,7 @@
     "/Users/sol/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
     "/Users/sol/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/sol/.nuget/packages/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
-    "/Users/sol/.nuget/packages/system.io.pipelines/5.0.1/system.io.pipelines.5.0.1.nupkg.sha512",
+    "/Users/sol/.nuget/packages/system.io.pipelines/7.0.0/system.io.pipelines.7.0.0.nupkg.sha512",
     "/Users/sol/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
     "/Users/sol/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/sol/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",

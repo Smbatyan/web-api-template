@@ -91,3 +91,4 @@
 /Users/sol/Documents/Panda/clean-api-template/src/WebApi/bin/Debug/net7.0/StackExchange.Redis.Extensions.Newtonsoft.dll
 /Users/sol/Documents/Panda/clean-api-template/src/WebApi/bin/Debug/net7.0/Microsoft.FeatureManagement.dll
 /Users/sol/Documents/Panda/clean-api-template/src/WebApi/bin/Debug/net7.0/Microsoft.FeatureManagement.AspNetCore.dll
+/Users/sol/Documents/Panda/clean-api-template/src/WebApi/obj/Debug/net7.0/WebApi.sourcelink.json

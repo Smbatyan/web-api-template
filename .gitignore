@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 # User-specific files
+.idea/
 *.rsuser
 *.suo
 *.user
@@ -31,7 +32,6 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
-.idea/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -76,6 +76,7 @@ StyleCopReport.xml
 *.ilk
 *.meta
 *.obj
+*.*.obj
 *.iobj
 *.pch
 *.pdb
@@ -397,8 +398,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/CondominiumOperation/appsettings.json
-/CondominiumOperation/env
-/CondominiumOperation/docker-compose.yml
-/CondominiumOperation/Properties/launchSettings.json
-/CondominiumOperation/certs/*
+
+# data
+# /CAUserManagement/appsettings.json
+# /CAUserManagement/.env
+# /CAUserManagement/docker-compose.yml
+# /CAUserManagement/Properties/launchSettings.json
+# /CAUserManagement/certs/*

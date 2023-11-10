@@ -15,3 +15,4 @@
 /Users/sol/Documents/Panda/clean-api-template/src/Infrastructure/bin/Debug/net7.0/Core.dll
 /Users/sol/Documents/Panda/clean-api-template/src/Infrastructure/bin/Debug/net7.0/Core.pdb
 /Users/sol/Documents/Panda/clean-api-template/src/Infrastructure/obj/Debug/net7.0/Infrastructure.csproj.CopyComplete
+/Users/sol/Documents/Panda/clean-api-template/src/Infrastructure/obj/Debug/net7.0/Infrastructure.sourcelink.json
