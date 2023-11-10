@@ -1,7 +1,7 @@
+using Application.DTO.Response.Test;
 using Core.Entities;
 using Core.Redis;
 using MediatR;
-using WebApi.DTO.Response.Test;
 
 namespace Application.Features.User.Commands.V1;
 

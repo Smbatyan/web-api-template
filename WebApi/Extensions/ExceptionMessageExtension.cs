@@ -4,7 +4,7 @@ namespace WebApi.Extensions;
 
 public static class ExceptionMessageExtension
 {
-    public static string ToFullBlownString(this System.Exception e, int level = int.MaxValue)
+    public static string ToFullBlownString(this Exception e, int level = int.MaxValue)
     {
         var sb = new StringBuilder();
         var exception = e;

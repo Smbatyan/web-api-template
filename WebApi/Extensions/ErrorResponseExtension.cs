@@ -1,7 +1,7 @@
 using System.Net;
 using System.Net.Mime;
 using Core.Exceptions;
-using WebApi.DTO.Response;
+using WebApi.DTO;
 using WebApi.Middlewares;
 
 namespace WebApi.Extensions;

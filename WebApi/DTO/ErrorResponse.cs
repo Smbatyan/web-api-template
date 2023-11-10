@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace WebApi.DTO.Response;
+namespace WebApi.DTO;
 
 public class ErrorResponse // Move to common
 {

@@ -1,8 +1,8 @@
+using Application.DTO.Response.Test;
 using Application.Features.User.Commands.V1;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.DTO.Response;
-using WebApi.DTO.Response.Test;
+using WebApi.DTO;
 
 namespace WebApi.Controllers.Admin;
 

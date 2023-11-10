@@ -1,4 +1,4 @@
-namespace WebApi.DTO.Request.Test;
+namespace Application.DTO.Request.Test;
 
 public class TestRequest
 {

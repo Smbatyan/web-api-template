@@ -1,4 +1,4 @@
-namespace WebApi.DTO.Response.Test;
+namespace Application.DTO.Response.Test;
 
 public class TestResponse
 {

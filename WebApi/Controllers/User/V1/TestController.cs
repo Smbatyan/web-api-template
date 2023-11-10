@@ -1,6 +1,6 @@
+using Application.DTO.Response.Test;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.DTO.Response;
-using WebApi.DTO.Response.Test;
+using WebApi.DTO;
 
 namespace WebApi.Controllers.User.V1;
 
