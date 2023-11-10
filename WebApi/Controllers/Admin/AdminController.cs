@@ -2,7 +2,6 @@ using Application.DTO.Response.Test;
 using Application.Features.User.Commands.V1;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.DTO;
 
 namespace WebApi.Controllers.Admin;
 
@@ -25,8 +24,8 @@ public class AdminController : ControllerBase
     /// <param name="name"></param>
     /// <returns></returns>
     [ProducesResponseType(typeof(TestResponse), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
-    [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
     [HttpGet("admin-endpoint")]
     public async Task<IActionResult> Get(string name)
     {

@@ -41,6 +41,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\User\" />
+    <Folder Include="DTO\" />
     <Folder Include="Settings\Options\" />
   </ItemGroup>
 

@@ -1,14 +1,14 @@
 using System.Net;
 using System.Net.Mime;
 using Core.Exceptions;
-using WebApi.DTO;
+using Microsoft.AspNetCore.Mvc;
 using WebApi.Middlewares;
 
 namespace WebApi.Extensions;
 
 internal static class ErrorResponseExtension
 {
-    private const string ErrorMessage = "Something went wrong";
+    private const string ErrorMessage = "something_went_wrong";
 
     internal static async Task GenerateApplicationErrorResponse(this ApplicationException httpResponseException,
         HttpContext httpContext)
@@ -16,7 +16,7 @@ internal static class ErrorResponseExtension
         ApplicationExceptionBase exception = httpResponseException as ApplicationExceptionBase;
         httpContext.Response.StatusCode = exception!.StatusCode;
 
-        ErrorResponse error = new() { Message = httpResponseException.Message };
+        ProblemDetails error = new() { Title = httpResponseException.Message };
 
         await httpContext.Response.WriteAsJsonAsync(error);
     }
@@ -26,7 +26,7 @@ internal static class ErrorResponseExtension
     {
         httpContext.Response.ContentType = MediaTypeNames.Application.Json;
         
-        ErrorResponse errorResponse = new() { Message = ErrorMessage };
+        ProblemDetails errorResponse = new() { Title = ErrorMessage };
 
         logger.LogError(exception.ToFullBlownString()); // Add user info here
 

@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using WebApi.DTO;
 
 namespace WebApi.Attributes;
 
@@ -22,11 +21,11 @@ public class ValidatorModelFilterAttribute : ActionFilterAttribute
             .Select(v => v.ErrorMessage)
             .ToList();
 
-        List<ErrorResponse> errorResponses = new();
+        List<ProblemDetails> errorResponses = new();
 
         foreach (string errorMessage in errors)
         {
-            errorResponses.Add(new ErrorResponse() { Message = errorMessage });
+            errorResponses.Add(new ProblemDetails() { Title = errorMessage });
         }
 
         context.Result = new JsonResult(errorResponses) { StatusCode = 400 };
