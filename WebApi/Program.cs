@@ -1,6 +1,7 @@
 using Application;
 using Infrastructure;
 using Microsoft.FeatureManagement;
+using Newtonsoft.Json.Serialization;
 using WebApi.Extensions;
 using WebApi.Middlewares;
 
@@ -10,7 +11,6 @@ builder.AddSerilog(); // Move to common
 builder.AddCors(); // Move to common
 
 builder.Services
-    .AddEndpointsApiExplorer()
     .AddPandaSwaggerGen(builder.Configuration) // Move to common
     .AddCustomFluentValidation()
     .AddMediator()
@@ -20,12 +20,26 @@ builder.Services
     .AddApiVersioningFromHeader()
     .AddEndpointsApiExplorer()
     .AddFeatureManagement().Services
-    .AddControllers();
+    .AddControllers()
+    .AddNewtonsoftJson();
+
+builder.Services.AddMvc();
+
+    builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true); 
 
 var app = builder.Build();
 
-app.UseMiddleware<ErrorHandlerMiddleware>();
-app.UseHttpsRedirection();
-app.UsePandaSwagger(builder.Configuration);
+app
+    .UseCorrelationId() // Move to common
+    .UseRequestResponseLogging() // Move to common
+    .UseMiddleware<ErrorHandlerMiddleware>() // Move to common
+    .UseHttpsRedirection()
+    .UseRouting()
+    .UsePandaSwagger(builder.Configuration); // Move to common
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.Run();

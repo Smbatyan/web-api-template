@@ -10,14 +10,14 @@ namespace WebApi.Controllers.User.V1;
 public class TestController : ControllerBase
 {
     /// <summary>
-    /// Test admin endpoint
+    /// Test user endpoint
     /// </summary>
     /// <returns></returns>
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
     [HttpGet("user-endpoint")]
-    public async Task<IActionResult> Get()
+    public async Task<IActionResult> Get([FromQuery] string name)
     {
         await Task.Delay(100);
         return Ok(new TestResponse(){Text = "text"});

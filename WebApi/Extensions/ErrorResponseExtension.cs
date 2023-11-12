@@ -21,8 +21,8 @@ internal static class ErrorResponseExtension
         await httpContext.Response.WriteAsJsonAsync(error);
     }
 
-    internal static async Task GenerateUnhandledErrorResponse(this Exception exception,
-        HttpContext httpContext, ILogger<ErrorHandlerMiddleware> logger)
+    internal static async Task GenerateUnhandledErrorResponse<T>(this Exception exception,
+        HttpContext httpContext, ILogger<T> logger)
     {
         httpContext.Response.ContentType = MediaTypeNames.Application.Json;
         

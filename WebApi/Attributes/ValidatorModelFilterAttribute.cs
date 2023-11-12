@@ -21,12 +21,8 @@ public class ValidatorModelFilterAttribute : ActionFilterAttribute
             .Select(v => v.ErrorMessage)
             .ToList();
 
-        List<ProblemDetails> errorResponses = new();
-
-        foreach (string errorMessage in errors)
-        {
-            errorResponses.Add(new ProblemDetails() { Title = errorMessage });
-        }
+        List<ProblemDetails> errorResponses =
+            errors.Select(errorMessage => new ProblemDetails() { Detail = errorMessage }).ToList();
 
         context.Result = new JsonResult(errorResponses) { StatusCode = 400 };
     }

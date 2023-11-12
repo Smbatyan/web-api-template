@@ -18,6 +18,7 @@ public static class SwaggerExtension
             {
                 options.SwaggerDoc(version.Key, new OpenApiInfo
                 {
+                    Version = version.Key,
                     Title = version.Title,
                     Description = version.Description,
                     //  "Powered by PandaTech LLC: Where precision meets innovation. Let's build the future, one endpoint at a time.",
@@ -32,48 +33,48 @@ public static class SwaggerExtension
 
 
             //This option is created because due to some bug /health endpoint is not working in .NET 7. It's included in Microsoft planning.
-            options.DocumentFilter<HealthChecksFilter>();
-
-            // Add string input support into int64 field
-            options.ParameterFilter<PandaParameterBaseConverter>();
-
-            // Add the token authentication option
-            options.AddSecurityDefinition("token", new OpenApiSecurityScheme
-            {
-                Type = SecuritySchemeType.ApiKey,
-                In = ParameterLocation.Header,
-                Name = "token",
-                Description = "Token authentication using the bearer scheme"
-            });
+            // options.DocumentFilter<HealthChecksFilter>();
+            //
+            // // Add string input support into int64 field
+            // options.ParameterFilter<PandaParameterBaseConverter>();
+            //
+            // // Add the token authentication option
+            // options.AddSecurityDefinition("token", new OpenApiSecurityScheme
+            // {
+            //     Type = SecuritySchemeType.ApiKey,
+            //     In = ParameterLocation.Header,
+            //     Name = "token",
+            //     Description = "Token authentication using the bearer scheme"
+            // });
 
             // Require the token to be passed as a header for API calls
-            options.AddSecurityRequirement(new OpenApiSecurityRequirement
-            {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "token"
-                        }
-                    },
-                    Array.Empty<string>()
-                }
-            });
+            // options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            // {
+            //     {
+            //         new OpenApiSecurityScheme
+            //         {
+            //             Reference = new OpenApiReference
+            //             {
+            //                 Type = ReferenceType.SecurityScheme,
+            //                 Id = "token"
+            //             }
+            //         },
+            //         Array.Empty<string>()
+            //     }
+            // });
         });
 
         return services;
     }
 
-    public static void UsePandaSwagger(this WebApplication app, IConfiguration configuration)
+    public static void UsePandaSwagger(this IApplicationBuilder builder, IConfiguration configuration)
     {
-        if (app.Environment.IsProduction()) return;
+        if (builder.ApplicationServices.GetRequiredService<IHostEnvironment>().IsProduction()) return;
 
         SwaggerOptions swaggerOptions =
             configuration.GetSection("Swagger").Get<SwaggerOptions>() ?? SwaggerOptions.Default;
 
-        app.UseSwagger(c =>
+        builder.UseSwagger(c =>
         {
             c.RouteTemplate = "swagger/{documentName}/swagger.json";
             c.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
@@ -82,13 +83,12 @@ public static class SwaggerExtension
                 {
                     new()
                     {
-                        Url =
-                            $"https://{httpReq.Host.Value}{swaggerOptions.ApiBasePath}"
+                        Url = $"https://{httpReq.Host.Value}{swaggerOptions.ApiBasePath}"
                     }
                 };
             });
         });
-        app.UseSwaggerUI(c =>
+        builder.UseSwaggerUI(c =>
         {
             foreach (SwaggerVersionOptions version in swaggerOptions.Versions)
             {
@@ -98,14 +98,14 @@ public static class SwaggerExtension
 
             c.RoutePrefix = "swagger";
         });
-        app.UseStaticFiles();
+        builder.UseStaticFiles();
 
-        app.UseSwaggerUI(options =>
-        {
-            options.InjectStylesheet("/assets/css/panda-style.css");
-            options.InjectJavascript("/assets/js/docs.js");
-        });
-    } // move to common
+        // builder.UseSwaggerUI(options =>
+        // {
+        //     options.InjectStylesheet("/assets/css/panda-style.css");
+        //     options.InjectJavascript("/assets/js/docs.js");
+        // });
+    }
 
     public class SwaggerOptions
     {

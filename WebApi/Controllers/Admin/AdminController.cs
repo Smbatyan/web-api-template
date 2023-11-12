@@ -29,7 +29,7 @@ public class AdminController : ControllerBase
     [HttpGet("admin-endpoint")]
     public async Task<IActionResult> Get(string name)
     {
-        var response = await _mediator.Send(new CreateUserV1Command(){ Name = name });
+        var response = await _mediator.Send(new CreateUserV1Command { Name = name });
         
         await Task.Delay(100);
         
