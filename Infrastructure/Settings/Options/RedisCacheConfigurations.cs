@@ -4,8 +4,7 @@ namespace Infrastructure.Settings.Options;
 
 public class RedisCacheConfigurations
 {
-    public string SentinelConnectionString { get; set; }
-    public RedisConfiguration Configuration { get; set; }
+    public RedisConfiguration Redis { get; set; }
     public List<RedisServiceConfigurations> Databases { get; set; }
 }
 

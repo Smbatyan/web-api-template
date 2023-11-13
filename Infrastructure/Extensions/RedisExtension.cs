@@ -11,7 +11,7 @@ internal static class RedisExtension
 {
     internal static IServiceCollection AddRedisCache(this IServiceCollection services, IConfiguration configuration)
     {
-        IConfigurationSection redisSettingsConfig = configuration.GetSection("Redis");
+        IConfigurationSection redisSettingsConfig = configuration.GetSection("Cache");
 
         RedisCacheConfigurations redisSettings = redisSettingsConfig.Get<RedisCacheConfigurations>();
 
@@ -19,7 +19,7 @@ internal static class RedisExtension
         
         services.AddStackExchangeRedisExtensions<NewtonsoftSerializer>(_ =>
         {
-            return new[] { redisSettings.Configuration };
+            return new[] { redisSettings.Redis };
         });
 
         services.AddSingleton<ITestCacheService, TestRedisCacheService>();

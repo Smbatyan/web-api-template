@@ -18,9 +18,15 @@ public class CreateUserV1CommandHandler : IRequestHandler<CreateUserV1Command, T
     {
         await _testCacheService.SetRecordAsync("test", new TestEntity
         {
-            Id = 1, Text = "test"
+            Id = 1, Text = request.Name
         });
 
-        return new TestResponse();
+        var test = await _testCacheService.GetRecordAsync("test");
+
+        return new TestResponse()
+        {
+            Id = test.Id,
+            Text = test.Text
+        };
     }
 }

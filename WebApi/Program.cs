@@ -23,8 +23,6 @@ builder.Services
     .AddControllers()
     .AddNewtonsoftJson();
 
-builder.Services.AddMvc();
-
     builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true); 
 
 var app = builder.Build();
@@ -37,9 +35,10 @@ app
     .UseRouting()
     .UsePandaSwagger(builder.Configuration); // Move to common
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
+app.UseEndpoints(x => x.MapControllers());
+// app.UseEndpoints(endpoints =>
+// {
+//     endpoints.MapControllers();
+// });
 
 app.Run();
